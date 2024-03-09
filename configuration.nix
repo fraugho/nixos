@@ -188,4 +188,20 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
+
+systemd.services.flatpak-apps = {
+  description = "Flatpak Application Installer";
+  wantedBy = [ "multi-user.target" ];
+  script = let
+    flatpakPath = "${pkgs.flatpak}/bin/flatpak";
+  in ''
+    ${flatpakPath} remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    ${flatpakPath} install -y flathub com.vivaldi.Vivaldi
+    ${flatpakPath} install -y flathub org.mozilla.firefox
+  '';
+  after = [ "network-online.target" ];
+  requires = [ "network-online.target" ];
+};
+
+
 }
