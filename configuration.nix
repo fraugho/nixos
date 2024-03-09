@@ -48,6 +48,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  # Enables i3wm
+  services.xserver.windowManager.i3.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -117,6 +119,16 @@
     git
     ripgrep
     neovim
+    polybar
+    i3-gaps
+    i3lock
+    xautolock
+    autotiling
+    dmenu
+    sway
+    htop
+    flameshot
+    alacritty
   ];
 
   # Enable OpenGL
