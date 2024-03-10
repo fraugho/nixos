@@ -146,6 +146,12 @@ home-manager = {
     kitty
     alacritty
     home-manager
+    wofi
+    leafpad
+    nerdfonts
+    zsh
+    fish
+    mpv
   ];
 
   # Enable OpenGL
