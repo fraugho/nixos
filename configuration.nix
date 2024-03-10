@@ -241,6 +241,7 @@ systemd.services.flatpak-apps = {
     ${flatpakPath} remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     ${flatpakPath} install -y flathub com.vivaldi.Vivaldi
     ${flatpakPath} install -y flathub org.mozilla.firefox
+    ${flatpakPath} flatpak override --user --env=GDK_SCALE=1 --env=XCURSOR_SIZE=32
   '';
   after = [ "network-online.target" ];
   requires = [ "network-online.target" ];

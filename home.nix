@@ -5,6 +5,11 @@
   home.homeDirectory = "/home/noir";
   home.stateVersion = "23.11"; 
 
+  imports = [
+    ./home/waybar.nix
+  ];
+
+
   programs.home-manager.enable = true;
 
   programs.neovim = {
@@ -39,7 +44,8 @@
     enable =  true;
     enableAutosuggestions = true;
     enableCompletion = true;
-  };               
+  };
+
   # Add any other packages or configurations you need below
 }
 
