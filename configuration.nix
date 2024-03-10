@@ -28,6 +28,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Sets ZSH as shell
+  programs.zsh.enable = true;
+  users.users.noir.shell = pkgs.zsh;
+
   # Set your time zone.
   time.timeZone = "America/Anchorage";
 
