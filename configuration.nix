@@ -123,6 +123,12 @@ home-manager = {
       steam
       dmenu-rs
       gnome.file-roller
+      swaybg
+      virtualbox
+      htop
+      swaylock
+      bemenu
+      flameshot
     ];
   };
 
@@ -139,14 +145,11 @@ home-manager = {
     ripgrep
     neovim
     polybar
-    dmenu
     wayland
     xdg-utils
     dbus
-    bemenu
+    waybar
     wdisplays
-    htop
-    flameshot
     kitty
     alacritty
     home-manager
@@ -156,6 +159,7 @@ home-manager = {
     zsh
     fish
     mpv
+    virtualbox
   ];
 
   # Enable OpenGL
@@ -225,7 +229,7 @@ home-manager = {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "unstable"; # Did you read the comment?
 
 
 systemd.services.flatpak-apps = {
