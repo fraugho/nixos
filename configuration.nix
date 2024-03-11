@@ -59,12 +59,16 @@
   # Enables hyperland
   programs.hyprland.enable = true;
 
+  services.xserver = {
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
+#  services.xserver = {
+#    layout = "us";
+#    xkbVariant = "";
+#  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -118,7 +122,6 @@ home-manager = {
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      rust-analyzer
       steam
       dmenu-rs
       gnome.file-roller
@@ -143,6 +146,8 @@ home-manager = {
     wget
     git
     ripgrep
+    fd
+    lazygit
     neovim
     polybar
     wayland
@@ -164,6 +169,21 @@ home-manager = {
     libgcc
     rustup
     gcc
+    xclip
+    wl-clipboard
+    unzip
+    gnutar
+    gzip
+    curl
+    clang
+    rustup
+    lua
+    go
+    zig
+    docker
+    elixir
+    docker-compose
+    typescript
   ];
 
   # Enable OpenGL
@@ -236,20 +256,20 @@ home-manager = {
   system.stateVersion = "unstable"; # Did you read the comment?
 
 
-systemd.services.flatpak-apps = {
-  description = "Flatpak Application Installer";
-  wantedBy = [ "multi-user.target" ];
-  script = let
-    flatpakPath = "${pkgs.flatpak}/bin/flatpak";
-  in ''
-    ${flatpakPath} remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    ${flatpakPath} install -y flathub com.vivaldi.Vivaldi
-    ${flatpakPath} install -y flathub org.mozilla.firefox
-    ${flatpakPath} flatpak override --user --env=GDK_SCALE=1 --env=XCURSOR_SIZE=32
-  '';
-  after = [ "network-online.target" ];
-  requires = [ "network-online.target" ];
-};
+  systemd.services.flatpak-apps = {
+	  description = "Flatpak Application Installer";
+	  wantedBy = [ "multi-user.target" ];
+	  script = let
+		  flatpakPath = "${pkgs.flatpak}/bin/flatpak";
+	  in ''
+		  ${flatpakPath} remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+		  ${flatpakPath} install -y flathub com.vivaldi.Vivaldi
+		  ${flatpakPath} install -y flathub org.mozilla.firefox
+		  ${flatpakPath} flatpak override --user --env=GDK_SCALE=1 --env=XCURSOR_SIZE=32
+		  '';
+	  after = [ "network-online.target" ];
+	  requires = [ "network-online.target" ];
+  };
 
 
 
