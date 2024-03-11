@@ -118,7 +118,6 @@ home-manager = {
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      sway
       rust-analyzer
       steam
       dmenu-rs
@@ -129,6 +128,7 @@ home-manager = {
       swaylock
       bemenu
       flameshot
+      gnome.gnome-boxes
     ];
   };
 
@@ -160,6 +160,9 @@ home-manager = {
     fish
     mpv
     virtualbox
+    libvirt
+    clang
+    libgcc
   ];
 
   # Enable OpenGL

@@ -12,13 +12,12 @@
                  font-family: "JetBrainsMono Nerd Font";
                  font-size: 12pt;
                  font-weight: bold;
-                 border-radius: 8px;
                  transition-property: background-color;
                  transition-duration: 0.5s;
                }
                @keyframes blink_red {
                  to {
-                   background-color: rgb(242, 143, 173);
+                   background-color: rgb(0, 0, 0);
                    color: rgb(26, 24, 38);
                  }
                }
@@ -33,12 +32,7 @@
                  background-color: transparent;
                }
                window > box {
-                 margin-left: 5px;
-                 margin-right: 5px;
-                 margin-top: 5px;
-                 background-color: #1e1e2a;
-                 padding: 3px;
-                 padding-left:8px;
+                 background-color: #000000;
                  border: 2px none #33ccff;
                }
          #workspaces {
@@ -113,10 +107,6 @@
          #network.disconnected {
                  color: rgb(255, 255, 255);
                }
-         #custom-powermenu {
-                 color: rgb(242, 143, 173);
-                 padding-right: 8px;
-               }
          #tray {
                  padding-right: 8px;
                  padding-left: 10px;
@@ -131,19 +121,11 @@
          #mpd {
                  color: #c0caf5;
                }
-         #custom-cava-internal{
-                 font-family: "Hack Nerd Font" ;
-                 color: #33ccff;
-               }
       '';
       settings = [{
         "layer" = "top";
         "position" = "top";
         modules-left = [
-          "custom/launcher"
-          "temperature"
-          "mpd"
-          "custom/cava-internal"
         ];
         modules-center = [
           "clock"
@@ -157,17 +139,6 @@
           "custom/powermenu"
           "tray"
         ];
-        "custom/launcher" = {
-          "format" = " ";
-          "on-click" = "pkill rofi || rofi2";
-          "on-click-middle" = "exec default_wall";
-          "on-click-right" = "exec wallpaper_random";
-          "tooltip" = false;
-        };
-        "custom/cava-internal" = {
-          "exec" = "sleep 1s && cava-internal";
-          "tooltip" = false;
-        };
         "pulseaudio" = {
           "scroll-step" = 1;
           "format" = "{icon} {volume}%";
