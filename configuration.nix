@@ -184,6 +184,12 @@ home-manager = {
     elixir
     docker-compose
     typescript
+    python3
+    pipx
+    nodejs_21
+    unzip
+    lua-language-server
+    rust-analyzer
   ];
 
   # Enable OpenGL
