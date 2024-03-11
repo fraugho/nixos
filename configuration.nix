@@ -161,8 +161,9 @@ home-manager = {
     mpv
     virtualbox
     libvirt
-    clang
     libgcc
+    rustup
+    gcc
   ];
 
   # Enable OpenGL
