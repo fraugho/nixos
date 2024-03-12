@@ -190,6 +190,7 @@ home-manager = {
     unzip
     lua-language-server
     rust-analyzer
+    rustc
   ];
 
   # Enable OpenGL
